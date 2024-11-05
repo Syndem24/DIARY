@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="script.js">
+</script>
+<body class="body">
+    <header>
+        <h1 class="logo">My Diary</h1>
+        <nav>
+            <ul>
+                <li><a href="#entries">Entries</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h2 class="Title">Diary Entries</h2>
+    <main>
+        <section id="entries">  
+            <article>
+                <h3>During Dean's Lister Award</h3>
+                <p>Date: 2024-09-19 <br><br> The smart students receive the Dean's Lister award for my academic achievements. It was a proud moment!</p>
+
+                <img src="image/IMG20240919105245.jpg" class="FPic">
+            </article>
+            <article>
+                <h3>During dance Competition</h3>
+                <p>Date: 2024-10-11 <br><br> I learned something new today about dance move and formation.</p>
+                <img src="image/IMG20240919105613.jpg" class="FPic">
+            </article>
+            <article>
+                <h3>Teacher's Dance Performance</h3>
+                <p>Date: 2024-10-11 <br><br> Today was an interesting day at school, and it made my day great.</p>
+                <img src="image/IMG20240919143745.jpg" class="FPic">
+            </article>
+            <article>
+                <h3><center>This is also during Teacher's Dance Performance</center></h3>
+                <p>Date: 2024-10-12 <br>I had an insightful meeting with the team today and brainstormed new ideas.<br> </p>
+                <img src="image/IMG20240919150316.jpg" class="FPic">
+            </article>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img src="" alt="Image description">
+                <p></p>
+            </div>
+        </div>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Welcome to my diary! I'm excited to share my thoughts and experiences of the ACT 36th anniversary event.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>You can reach me at: <a href="mailto:example@example.com">auchiedegamo19@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Diary. All rights reserved.</p>
+    </footer>
+    <script src="script.js">
+        document.addEventListener('DOMContentLoaded', () => {
+            const articles = document.querySelectorAll('#entries article');
+            const modal = document.querySelector('.modal');
+            const modalContent = document.querySelector('.modal-content');
+            const modalImage = modalContent.querySelector('img');
+            const modalDescription = modalContent.querySelector('p');
+            const closeBtn = document.querySelector('.close');
+    
+            // Add click event to each article
+            articles.forEach(article => {
+                article.addEventListener('click', () => {
+                    const title = article.querySelector('h3').textContent;
+                    const imgSrc = article.querySelector('img').src;
+                    const description = article.querySelector('p').textContent;
+    
+                    // Set the modal image and description
+                    modalImage.src = imgSrc;
+                    modalDescription.textContent = description;
+                    // Show the modal
+                    modal.style.display = 'flex';
+                });
+            });
+    
+            // Close the modal when the close button is clicked
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+    
+            // Close the modal when clicking outside the content
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
